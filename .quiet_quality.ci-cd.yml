@@ -1,5 +1,5 @@
 ---
-default_tools: ["rubocop"]
+default_tools: ["standardrb", "rubocop"]
 executor: concurrent
 comparison_branch: origin/main
 annotator: github_stdout

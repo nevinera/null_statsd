@@ -44,7 +44,7 @@ describe NullStatsd::Statsd do
         it "logs a message with the namespace in the identifier" do
           method.call(args)
           expect(logger).to have_received(:debug).with(match expected_key)
-          expect(logger).to have_received(:debug).with(match /\[NullStatsD :-foo\]/)
+          expect(logger).to have_received(:debug).with(match(/\[NullStatsD :-foo\]/))
         end
       end
 
@@ -56,7 +56,7 @@ describe NullStatsd::Statsd do
       end
 
       context "with options" do
-        let(:opts) { { foo: "bar", baz: "zork" } }
+        let(:opts) { {foo: "bar", baz: "zork"} }
         let(:expected_opts) { '{"foo":"bar","baz":"zork"}' }
 
         it "logs a message containing the proper string" do
@@ -65,7 +65,7 @@ describe NullStatsd::Statsd do
         end
 
         context "when options contain an array" do
-          let(:opts) { { foo: ["baz", "bak", "bat"] } }
+          let(:opts) { {foo: ["baz", "bak", "bat"]} }
           let(:expected_opts) { /{"foo":\["baz","bak","bat"\]}/ }
 
           it "logs a message containing the proper string" do
