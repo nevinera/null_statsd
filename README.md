@@ -6,19 +6,8 @@ conveniently stubbed Statsd objects in your development and testing environments
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'null_statsd'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install null_statsd
+You can install the gem directly with `gem install null_statsd`, or you can add
+`gem 'null_statsd'` to your application's Gemfile, and then `bundle install`.
 
 ## Usage
 
@@ -53,7 +42,7 @@ $statsd.increment(...)
 
 Notice that your `statsd` endpoint is _not_ receiving data, but your logs are.
 
-```
+```text
 [NullStatsD host:42] Incrementing media.book.consumed with opts {"genre":"science_fiction"}
 [NullStatsD host:42] Decrementing media.book.on_hand
 [NullStatsD host:42] Recording timing info in book.checkout -> 0.512917 sec
