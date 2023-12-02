@@ -27,4 +27,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 13.1"
   spec.add_development_dependency "rspec", "~> 3.12"
   spec.add_development_dependency "rspec-cover_it", "~> 0.1.0"
+  spec.add_development_dependency "pry", "~> 0.14"
+  spec.add_development_dependency "standard", "~> 1.32"
+  spec.add_development_dependency "rubocop", "~> 1.57"
+  spec.add_development_dependency "quiet_quality", "~> 1.5"
+  spec.add_development_dependency "mdl", "~> 0.13"
 end
