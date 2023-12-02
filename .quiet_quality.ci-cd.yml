@@ -1,5 +1,5 @@
 ---
-default_tools: ["rspec"]
+default_tools: ["rubocop"]
 executor: concurrent
 comparison_branch: origin/main
 annotator: github_stdout
