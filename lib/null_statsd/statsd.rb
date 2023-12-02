@@ -64,11 +64,12 @@ module NullStatsd
 
     def with_namespace(namespace)
       new_ns = dup
-      if @namespace == "" || @namespace == nil
-        new_ns.namespace = namespace
-      else
-        new_ns.namespace = "#{@namespace}.#{namespace}"
-      end
+      new_ns.namespace =
+        if @namespace == "" || @namespace.nil?
+          namespace
+        else
+          "#{@namespace}.#{namespace}"
+        end
       if block_given?
         yield new_ns
       else
@@ -90,7 +91,7 @@ module NullStatsd
       start = Time.now
       result = block.call
       elapsed_time = Time.now - start
-      return elapsed_time, result
+      [elapsed_time, result]
     end
 
     def notify(msg)
