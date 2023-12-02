@@ -1,0 +1,25 @@
+name: Quiet Quality
+
+on: push
+permissions: write-all
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Show the merge-base
+        run: git merge-base origin/main ${{ github.sha }}
+        if: github.branch != 'main'
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+
+      - name: Run QuietQuality
+        run: bundle exec qq -C .quiet_quality.ci-cd.yml
